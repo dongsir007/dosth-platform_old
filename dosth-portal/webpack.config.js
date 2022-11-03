@@ -16,7 +16,9 @@ module.exports = {
     // webpack运行模式, 可选值 development 和 production
     module: 'development',
     // 运行时行数与源码行数保持一致
-    devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
+    // 生产环境下,提示行数与源码行数一致,代码混淆
+    devtool: 'nosources-source-map',
     entry: path.join(__dirname, './src/index.js'), // 打包入库文件的路径
     output: {
         path: path.join(__dirname, './dist'), // 输出文件的存放路径
@@ -50,5 +52,11 @@ module.exports = {
             // 使用babel-loader处理js高级语法
             {test: /\.js$/, use: 'babel-loader', exclude: /node_modules/} 
         ]
+    },
+    resolve: {
+        alias: {
+            // @符号表示src路径
+            '@': path.join(__dirname, './src/')
+        }
     }
 }
