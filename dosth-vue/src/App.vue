@@ -2,6 +2,9 @@
   <div class="app-container">
     <h1>App根组件</h1>
     <hr/>
+    <button @click="flag = !flag">Toggle Flag</button>
+    <Lifecycle v-if="flag" info="你好"></Lifecycle>
+    <hr/>
     <div class="box">
       <Left></Left>
       <Right></Right>
@@ -12,11 +15,18 @@
 <script>
 import Left from '@/components/Left.vue'
 import Right from '@/components/Right.vue'
+import Lifecycle from '@/components/Lifecycle.vue'
 
 export default {
+  data() {
+    return {
+      flag: true
+    }
+  },
   components: {
     Left,
-    Right
+    Right,
+    Lifecycle
   }
 }
 </script>
