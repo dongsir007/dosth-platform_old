@@ -4,7 +4,7 @@
             Right组件
         </h3>
         <hr/>
-        <Count></Count>
+        <Count :init="6"></Count>
     </div>
 </template>
 <script>
