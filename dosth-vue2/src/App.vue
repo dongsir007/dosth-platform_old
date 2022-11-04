@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app-container">
+    <h1>App根组件</h1>
+    <p>userinfo的值: {{ userinfo }}</p>
+    <hr/>
+    <div class="box">
+      <Left :msg="message" :user="userinfo"></Left>
+      <Right></Right>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Left from './components/Left.vue'
+import Right from './components/Right.vue'
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      message: 'hello world',
+      userinfo: {
+        name: 'zs',
+        age: 18
+      }
+    }
+  },
   components: {
-    HelloWorld
+    Left,
+    Right
   }
 }
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app-container {
+  padding: 1px 20px 20px;
+  background-color: #efefef;
+}
+.box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.box > div {
+  height: 100%;
+  flex: 1;
 }
 </style>
