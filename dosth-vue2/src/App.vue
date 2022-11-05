@@ -5,6 +5,7 @@
     <hr/>
     <div class="box">
       <Left :msg="message" :user="userinfo"></Left>
+      <!-- 子向父传值--父 -->
       <Right @numchange="getNewCount"></Right>
     </div>
   </div>
@@ -30,6 +31,7 @@ export default {
     Right
   },
   methods: {
+    // 子向父传值--父
     getNewCount(val) {
       this.countFromSon = val
     }

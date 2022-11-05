@@ -24,6 +24,7 @@
         },
         methods: {
             send() {
+                // 兄弟之间数据传输--发送方
                 bus.$emit('share', this.str)
             }
         }

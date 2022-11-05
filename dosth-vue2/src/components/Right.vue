@@ -21,10 +21,12 @@
         methods: {
             add() {
                 this.count++
+                // 子向父传值
                 this.$emit('numchange', this.count)
             }
         },
         created() {
+                // 兄弟之间数据传输--接收方
             bus.$on('share', val => {
                 console.log('Right组件被触发了', val)
                 this.msgFromLeft = val
