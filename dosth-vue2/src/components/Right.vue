@@ -1,14 +1,25 @@
 <template>
     <div class="right-container">
         <h3>
-            Right组件
+            Right组件 --- {{ count }}
         </h3>
         <hr/>
+        <button @click="add">+1</button>
     </div>
 </template>
 <script>
     export default {
-
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            add() {
+                this.count++
+                this.$emit('numchange', this.count)
+            }
+        }
     }
 </script>
 <style lang="less">

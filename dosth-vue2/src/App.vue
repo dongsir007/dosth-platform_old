@@ -1,11 +1,11 @@
 <template>
   <div class="app-container">
-    <h1>App根组件</h1>
+    <h1>App根组件 --- {{ countFromSon }}</h1>
     <p>userinfo的值: {{ userinfo }}</p>
     <hr/>
     <div class="box">
       <Left :msg="message" :user="userinfo"></Left>
-      <Right></Right>
+      <Right @numchange="getNewCount"></Right>
     </div>
   </div>
 </template>
@@ -21,12 +21,18 @@ export default {
       userinfo: {
         name: 'zs',
         age: 18
-      }
+      },
+      countFromSon: 0
     }
   },
   components: {
     Left,
     Right
+  },
+  methods: {
+    getNewCount(val) {
+      this.countFromSon = val
+    }
   }
 }
 </script>
