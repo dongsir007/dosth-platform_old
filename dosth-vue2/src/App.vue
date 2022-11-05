@@ -6,6 +6,9 @@
     <button @click="showThis">打印 This</button>
     <button @click="resetLeftCount">重置Left组件的count为1</button>
     <hr/>
+    <input v-if="inputVisiable" type="text" @blur="showButton" ref="iptRef">
+    <button v-else @click="showInput">展示输入框的内容</button>
+    <hr/>
     <div class="box">
       <Left ref="left" :msg="message" :user="userinfo"></Left>
       <!-- 子向父传值--父 -->
@@ -26,7 +29,8 @@ export default {
         name: 'zs',
         age: 18
       },
-      countFromSon: 0
+      countFromSon: 0,
+      inputVisiable: false
     }
   },
   components: {
@@ -44,6 +48,15 @@ export default {
     },
     resetLeftCount() {
       this.$refs.left.count = 1
+    },
+    showInput() {
+      this.inputVisiable = true
+      this.$nextTick(() => {
+        this.$refs.iptRef.focus()
+      })
+    },
+    showButton() {
+      this.inputVisiable = false
     }
   }
 }

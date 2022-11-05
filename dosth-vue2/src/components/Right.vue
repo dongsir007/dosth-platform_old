@@ -5,6 +5,8 @@
         </h3>
         <hr/>
         <button @click="add">+1</button>
+        <hr/>
+        
         <p>{{ msgFromLeft }}</p>
     </div>
 </template>
