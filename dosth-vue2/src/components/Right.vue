@@ -5,13 +5,17 @@
         </h3>
         <hr/>
         <button @click="add">+1</button>
+        <p>{{ msgFromLeft }}</p>
     </div>
 </template>
 <script>
+    import bus from './EventBus.js'
+
     export default {
         data() {
             return {
-                count: 0
+                count: 0,
+                msgFromLeft: ''
             }
         },
         methods: {
@@ -19,6 +23,12 @@
                 this.count++
                 this.$emit('numchange', this.count)
             }
+        },
+        created() {
+            bus.$on('share', val => {
+                console.log('Right组件被触发了', val)
+                this.msgFromLeft = val
+            })
         }
     }
 </script>
