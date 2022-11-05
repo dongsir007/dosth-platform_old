@@ -1,10 +1,13 @@
 <template>
   <div class="app-container">
-    <h1>App根组件 --- {{ countFromSon }}</h1>
+    <h1 ref="myH1">App根组件 --- {{ countFromSon }}</h1>
     <p>userinfo的值: {{ userinfo }}</p>
     <hr/>
+    <button @click="showThis">打印 This</button>
+    <button @click="resetLeftCount">重置Left组件的count为1</button>
+    <hr/>
     <div class="box">
-      <Left :msg="message" :user="userinfo"></Left>
+      <Left ref="left" :msg="message" :user="userinfo"></Left>
       <!-- 子向父传值--父 -->
       <Right @numchange="getNewCount"></Right>
     </div>
@@ -12,8 +15,8 @@
 </template>
 
 <script>
-import Left from './components/Left.vue'
-import Right from './components/Right.vue'
+import Left from '@/components/Left.vue'
+import Right from '@/components/Right.vue'
 
 export default {
   data() {
@@ -34,6 +37,13 @@ export default {
     // 子向父传值--父
     getNewCount(val) {
       this.countFromSon = val
+    },
+    showThis() {
+    //  console.log(this.$refs.myH1)
+      this.$refs.myH1.style.color = 'red'
+    },
+    resetLeftCount() {
+      this.$refs.left.count = 1
     }
   }
 }
