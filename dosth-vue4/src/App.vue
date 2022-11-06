@@ -1,7 +1,9 @@
 <template>
   <div class="app-container">
-    <h1 ref="myH1">App根组件 --- </h1>
+    <h1 v-color="color" ref="myH1">App根组件 --- </h1>
     <hr/>
+    <p v-color="'red'">测试</p>
+    <button @click="color = 'green'">改变color颜色</button>
     <Article>
       <template #title>
         <h3>一首诗</h3>
@@ -17,7 +19,7 @@
         </div>
       </template>
       <template #author>
-        <h3>打油诗</h3>
+        <h3>作者:打油诗</h3>
       </template>
     </Article>
     <hr/>
@@ -40,7 +42,7 @@ import Article from '@/components/Article.vue'
 export default {
   data() {
     return {
-
+      color: 'blue'
     }
   },
   components: {
@@ -49,6 +51,24 @@ export default {
     Article
   },
   methods: {
+  },
+  // 私有自定义指令
+  directives: {
+    // color: {
+    //   bind(el, binding) {
+    //     el.style.color = binding.value
+    //     console.log('触发v-color的bind函数')
+    //   },      
+    //   update(el, binding) {
+    //     el.style.color = binding.value
+    //     console.log('触发v-color的update函数')
+    //   }
+    // }
+
+    // color(el, binding) {
+    //     el.style.color = binding.value
+    //     console.log('触发v-color的简写形式')
+    //   }
   }
 }
 </script>
