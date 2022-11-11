@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style type="less" scoped>
+<style lang="less" scoped>
   .good-container {
     background-color: blueviolet;
   }

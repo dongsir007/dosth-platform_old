@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style type="less" scoped>
+<style lang="less" scoped>
 .user-detail-container {
   background-color: gainsboro;
 }

@@ -18,5 +18,6 @@
   	<module>dosth-jwt</module>
   	<module>dosth-gateway</module>
   	<module>dosth-common</module>
+  	<module>dosth-backend</module>
   </modules>
 </project>
