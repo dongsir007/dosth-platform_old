@@ -50,7 +50,12 @@ module.exports = {
                 }
             }},
             // 使用babel-loader处理js高级语法
-            {test: /\.js$/, use: 'babel-loader', exclude: /node_modules/} 
+            {test: /\.js$/, exclude: /node_modules/, use: {
+				loader: 'babel-loader',
+                options: {                    
+				    plugins: ['@babel/plugin-proposal-class-properties']
+                }
+			}} 
         ]
     },
     resolve: {
